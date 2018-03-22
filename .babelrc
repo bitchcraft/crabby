@@ -1,0 +1,19 @@
+{
+    "presets": [
+        "env",
+        "stage-0",
+        "react",
+        "flow"
+    ],
+    "plugins": [
+        "add-module-exports",
+        "transform-runtime",
+        [ "module-resolver", {
+            "root": [ "./" ],
+            "alias": {
+                "src": "./src",
+                "dist": "./dist"
+            }
+        } ]
+    ]
+}
