@@ -1,16 +1,20 @@
 // @flow
-import { convertKeys, StringConverters } from '@bitchcraft/ocake';
+import { StringConverters } from '@bitchcraft/ocake';
 
-const toCamelCase = payload => convertKeys(payload, StringConverters.toCamelCase);
 const getNumberFromPxValue = pxValue => parseInt(pxValue.replace('px', ''));
+const getPropertyValue = (cs, prop) => (
+	Object.prototype.hasOwnProperty.call(cs, prop)
+		? cs[StringConverters.toKebabCase(prop)]
+		: cs.getPropertyValue(StringConverters.toKebabCase(prop))
+);
 
 
 export default function getLineHeightForElement(element: HTMLElement) {
-	const textElementStyles = toCamelCase(getComputedStyle(element));
-	const lineHeight = getNumberFromPxValue(textElementStyles.lineHeight);
+	const computedStyle = getComputedStyle(element);
+	const lineHeight = getNumberFromPxValue(getPropertyValue(computedStyle, 'lineHeight'));
 
 	if (Number.isNaN(lineHeight)) {
-		const fontSize = getNumberFromPxValue(textElementStyles.fontSize);
+		const fontSize = getNumberFromPxValue(getPropertyValue(computedStyle, 'fontSize'));
 		return fontSize * 1.2;
 	}
 
