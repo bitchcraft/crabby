@@ -2,13 +2,13 @@
 import React, { Component, cloneElement } from 'react';
 import shallowEqual from 'recompose/shallowEqual';
 import debounce from 'lodash/debounce';
-import { convertKeys, StringConverters } from '@bitchcraft/ocake';
 import clamp, { SplitPatterns } from 'src/tools/clamp';
+import getLineHeightForElement from 'src/tools/getLineHeightForElement';
 
 import type { Element as ReactElement } from 'react';
 
 
-const toCamelCase = payload => convertKeys(payload, StringConverters.toCamelCase);
+
 
 type Props = {
 	/** Text to clamp */
@@ -198,8 +198,8 @@ class ClampText extends Component<Props, State> {
 
 		const textElement = clampContainerRef.firstChild;
 		if (!textElement || !(textElement instanceof HTMLElement)) return;
-		const textElementStyles = toCamelCase(getComputedStyle(textElement));
-		const lineHeight = parseInt(textElementStyles.lineHeight.replace('px', ''));
+		const lineHeight = getLineHeightForElement(textElement);
+
 		if (textElement.offsetHeight <= lineHeight * Number(lines)) {
 			this.setState({
 				isClamped: false,
