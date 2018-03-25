@@ -1,5 +1,6 @@
 // @flow
 import { stringToCharArray } from 'utfstring';
+import type { testFunction } from './targetCondition';
 
 export const SplitPatterns = {
 	SENTENCES: /(.*?[.!?:;…]\s)/g,
@@ -13,33 +14,24 @@ export const SplitPatterns = {
  * @func clamp
  * @return {string} - clamped text
  */
-const clamp = (partials: Array<string>, element: ?HTMLElement, {
-	index = 1,
+const clamp = (partials: Array<string>, test: ?testFunction, {
 	mode = 'sentences',
 	prefix,
 	suffix,
-	targetHeight,
 }: {
-	index?: number,
 	mode?: string,
 	prefix?: ?string,
 	suffix?: ?string,
-	targetHeight: number,
 } = {}): ?string => {
 
-	if (!element || !partials.length) return prefix;
+	if (!test || !partials.length) return prefix;
 	suffix = suffix || '';
 
-	const textElement = element.firstChild;
-	if (!textElement || !(textElement instanceof HTMLElement)) return prefix;
-
 	const prefixCandidate = (prefix || '') + partials[0];
-	textElement.innerHTML = prefixCandidate + suffix;
-
-	const parentHeight = element.offsetHeight;
+	const remainingHeight = test(prefixCandidate + suffix);
 
 	// if candidate is too long
-	if (parentHeight > targetHeight || index > 500) {
+	if (remainingHeight < 0 || mode === 'trimming') {
 		if (mode === 'sentences') {
 			// split down to word boundary
 			mode = 'words';
@@ -48,27 +40,29 @@ const clamp = (partials: Array<string>, element: ?HTMLElement, {
 			// split down to characters
 			mode = 'characters';
 			partials = stringToCharArray(partials[0]); // UTF safe character splitting
+		} else if (prefix && remainingHeight < 0) {
+			// delete last character in prefix
+			const utfSafePrefix = stringToCharArray(prefix);
+			utfSafePrefix.splice(-1);
+			prefix = utfSafePrefix.join('');
+			mode = 'trimming';
 		} else {
 			// return the current prefix
 			return typeof prefix === 'string' ? prefix + suffix : null;
 		}
 
-		return clamp(partials, element, {
-			index: index + 1,
+		return clamp(partials, test, {
 			mode,
 			prefix,
 			suffix,
-			targetHeight,
 		});
 	}
 
 	// if candidate is definitely not too long and potentially too short
-	return clamp(partials.slice(1), element, {
-		index: index + 1,
+	return clamp(partials.slice(1), test, {
 		mode,
 		prefix: prefixCandidate,
 		suffix,
-		targetHeight,
 	});
 };
 

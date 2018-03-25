@@ -4,6 +4,7 @@ import shallowEqual from 'recompose/shallowEqual';
 import debounce from 'lodash/debounce';
 import clamp, { SplitPatterns } from 'src/tools/clamp';
 import getLineHeightForElement from 'src/tools/getLineHeightForElement';
+import createTargetCondition from 'src/tools/createTargetCondition';
 
 import type { Element as ReactElement } from 'react';
 
@@ -65,7 +66,7 @@ class ClampText extends Component<Props, State> {
 	}
 
 	componentDidMount() {
-		this.clamp();
+		setTimeout(this.clamp, 50);
 	}
 
 	shouldComponentUpdate(nextProps: Props, nextState: State) {
@@ -89,7 +90,7 @@ class ClampText extends Component<Props, State> {
 
 		// reclamp on props changed or document resize
 		if (isCollapsed && (propsChanged || didResize)) {
-			this.clamp();
+			setTimeout(this.clamp, 150);
 		}
 	}
 
@@ -213,6 +214,7 @@ class ClampText extends Component<Props, State> {
 		const cloneContainerElement = document.createElement('div');
 		const cloneElementStyle = [
 			'display: block',
+			'padding: 0',
 			'visibility: hidden',
 			'z-index: -10000',
 			`width: ${clampContainerRef.offsetWidth}px`,
@@ -228,7 +230,8 @@ class ClampText extends Component<Props, State> {
 		}
 
 		const sentences = original.split(SplitPatterns.SENTENCES).filter(c => Boolean(c));
-		const clamped = clamp(sentences, clonedTextElement, { suffix, targetHeight: lineHeight * lines });
+		const testFunction = createTargetCondition(clonedTextElement, lines);
+		const clamped = clamp(sentences, testFunction, { suffix });
 		const isClamped = clamped !== original;
 
 		this.setState({
