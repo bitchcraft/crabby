@@ -6,7 +6,7 @@ const { rules } = webpackConfig.module;
 
 module.exports = {
 	// assetsDir: 'static/',
-	components: 'src/{components,containers}/**/*.{js,jsx}',
+	components: 'src/**/*.{js,jsx}',
 	getComponentPathLine(componentPath) {
 		const name = path.basename(componentPath, '.jsx');
 		const dir = path.dirname(componentPath).replace('src/', '');
@@ -15,12 +15,6 @@ module.exports = {
 	getExampleFilename(componentPath) {
 		return componentPath.replace(/\.jsx?$/, '.examples.md');
 	},
-	sections: [
-		{
-			name: 'Components',
-			components: 'src/components/**/*.jsx',
-		},
-	],
 	showUsage: false,
 	styleguideComponents: {
 		Wrapper: path.join(__dirname, 'styleguidist/Wrapper'),
