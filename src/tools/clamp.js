@@ -34,14 +34,10 @@ const clamp = (partials: Array<string>, test: ?testFunction, {
 	if (partials.length !== 1) {
 		half = Math.floor(partials.length / 2);
 		slicedPartials = partials.slice(0, half);
-		for (let i = 0; i < slicedPartials.length; i++) {
-			words += slicedPartials[i];
-		}
+		words = slicedPartials.reduce((acc, word) => acc + word, words);
 		reference = slicedPartials;
 	} else {
-		for (let i = 0; i < partials.length; i++) {
-			words += partials[i];
-		}
+		words = partials.reduce((acc, word) => acc + word, words);
 	}
 
 	const prefixCandidate = (prefix || '') + words;
@@ -52,11 +48,13 @@ const clamp = (partials: Array<string>, test: ?testFunction, {
 
 		if (mode === 'sentences') {
 			if (reference.length === 1) {
+				// split down to words
 				mode = 'words';
 				partials = reference[0].split(SplitPatterns.WORDS).filter(c => Boolean(c));
 			} else {
 				partials = reference;
 			}
+
 		} else if (mode === 'words') {
 			if (reference.length === 1) {
 				// split down to characters
@@ -65,12 +63,14 @@ const clamp = (partials: Array<string>, test: ?testFunction, {
 			} else {
 				partials = reference;
 			}
+
 		} else if (prefix && remainingHeight < 0) {
 			// delete last character in prefix
 			const utfSafePrefix = stringToCharArray(prefix);
 			utfSafePrefix.splice(-1);
 			prefix = utfSafePrefix.join('');
 			mode = 'trimming';
+
 		} else {
 			// return the current prefix
 			return typeof prefix === 'string' ? prefix + suffix : null;
@@ -81,7 +81,6 @@ const clamp = (partials: Array<string>, test: ?testFunction, {
 			prefix,
 			suffix,
 		});
-
 
 	}
 
