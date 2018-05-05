@@ -1,12 +1,11 @@
 // @flow
 import { stringToCharArray } from 'utfstring';
-import type { testFunction } from './targetCondition';
+import type { testFunction } from './createTargetCondition';
 
 export const SplitPatterns = {
 	SENTENCES: /(.*?[.!?:;…]\s)/g,
 	WORDS: /(\w*?\W+)/g,
 };
-
 
 /**
  * Clamps text to targetHeight using element for fitting
@@ -27,19 +26,45 @@ const clamp = (partials: Array<string>, test: ?testFunction, {
 	if (!test || !partials.length) return prefix;
 	suffix = suffix || '';
 
-	const prefixCandidate = (prefix || '') + partials[0];
+	let words = '';
+	let slicedPartials = null;
+	let half = 0;
+	let reference = partials;
+
+	if (partials.length !== 1) {
+		half = Math.floor(partials.length / 2);
+		slicedPartials = partials.slice(0, half);
+		for (let i = 0; i < slicedPartials.length; i++) {
+			words += slicedPartials[i];
+		}
+		reference = slicedPartials;
+	} else {
+		for (let i = 0; i < partials.length; i++) {
+			words += partials[i];
+		}
+	}
+
+	const prefixCandidate = (prefix || '') + words;
 	const remainingHeight = test(prefixCandidate + suffix);
 
 	// if candidate is too long
 	if (remainingHeight < 0 || mode === 'trimming') {
+
 		if (mode === 'sentences') {
-			// split down to word boundary
-			mode = 'words';
-			partials = partials[0].split(SplitPatterns.WORDS).filter(c => Boolean(c));
+			if (reference.length === 1) {
+				mode = 'words';
+				partials = reference[0].split(SplitPatterns.WORDS).filter(c => Boolean(c));
+			} else {
+				partials = reference;
+			}
 		} else if (mode === 'words') {
-			// split down to characters
-			mode = 'characters';
-			partials = stringToCharArray(partials[0]); // UTF safe character splitting
+			if (reference.length === 1) {
+				// split down to characters
+				mode = 'characters';
+				partials = stringToCharArray(reference[0]); // UTF safe character splitting
+			} else {
+				partials = reference;
+			}
 		} else if (prefix && remainingHeight < 0) {
 			// delete last character in prefix
 			const utfSafePrefix = stringToCharArray(prefix);
@@ -56,10 +81,12 @@ const clamp = (partials: Array<string>, test: ?testFunction, {
 			prefix,
 			suffix,
 		});
+
+
 	}
 
 	// if candidate is definitely not too long and potentially too short
-	return clamp(partials.slice(1), test, {
+	return clamp(partials.slice(half), test, {
 		mode,
 		prefix: prefixCandidate,
 		suffix,
