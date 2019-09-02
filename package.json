@@ -55,7 +55,7 @@
 		"expect": "^24.8.0",
 		"flow-bin": "^0.103.0",
 		"jest": "^24.9.0",
-		"markdown-to-jsx": "^6.5.2",
+		"markdown-to-jsx": "^6.10.3",
 		"prop-types": "^15.6.1",
 		"react-codemirror2": "^6.0.0",
 		"react-dom": "^16.2.0",
