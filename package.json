@@ -63,7 +63,7 @@
 		"react-group": "^3.0.2",
 		"react-icons": "^3.7.0",
 		"react-styleguidist": "^9.1.16",
-		"webpack": "^4.39.3",
+		"webpack": "^4.41.0",
 		"webpack-bundle-analyzer": "^3.5.2"
 	},
 	"jest": {
