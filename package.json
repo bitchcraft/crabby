@@ -59,7 +59,7 @@
 		"markdown-to-jsx": "^6.10.3",
 		"prop-types": "^15.6.1",
 		"react-codemirror2": "^6.0.0",
-		"react-dom": "^16.9.0",
+		"react-dom": "^16.10.1",
 		"react-group": "^3.0.2",
 		"react-icons": "^3.7.0",
 		"react-styleguidist": "^9.1.16",
