@@ -12,7 +12,7 @@
 		"react-tap-event-plugin": "^3.0.2",
 		"recompose": "^0.30.0",
 		"set-value": "^3.0.1",
-		"utfstring": "^2.0.0"
+		"utfstring": "^2.0.1"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.6.3",
