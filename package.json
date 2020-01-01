@@ -47,7 +47,7 @@
 		"codemirror": "^5.49.0",
 		"eslint": "^6.5.1",
 		"eslint-config-airbnb": "^18.0.1",
-		"eslint-plugin-flowtype": "^4.3.0",
+		"eslint-plugin-flowtype": "^4.5.3",
 		"eslint-plugin-flowtype-errors": "^4.1.0",
 		"eslint-plugin-import": "^2.18.2",
 		"eslint-plugin-jsx-a11y": "^6.2.3",
