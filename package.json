@@ -53,7 +53,7 @@
 		"eslint-plugin-jsx-a11y": "^6.2.3",
 		"eslint-plugin-react": "^7.18.0",
 		"eventsource-polyfill": "^0.9.6",
-		"expect": "^24.9.0",
+		"expect": "^25.1.0",
 		"flow-bin": "^0.116.1",
 		"jest": "^24.9.0",
 		"markdown-to-jsx": "^6.10.3",
