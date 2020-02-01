@@ -4054,10 +4054,10 @@ flatted@^2.0.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.0.tgz#55122b6536ea496b4b44893ee2608141d10d9916"
   integrity sha512-R+H8IZclI8AAkSBRQJLVOsxwAoHd6WC40b4QTNWIjzAa6BXOBfQcM587MXDTVPeYaopFNWHUFLx7eNmHDSxMWg==
 
-flow-bin@^0.114.0:
-  version "0.114.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.114.0.tgz#9079c5fcdf08fab4db91616f38994e9b7d035842"
-  integrity sha512-hewufX0nbnhemQn5XtJ97nEFNqoBclPBAZ54aY3jKuZJnLpwqB7Doaplet3M26TOh2NchBsU0+lUkM8oVna2VA==
+flow-bin@^0.116.1:
+  version "0.116.1"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.116.1.tgz#797964df40f2e32cad7e334583535105161434f4"
+  integrity sha512-ZSvjx+S4PtDNKcA4U0Afm8sHzzSlTdBBT//N2AltcaN6M/gyxAOGXjC6VkMMGqKWttw+5Psq6fU+RIvD1q/ocA==
 
 flush-write-stream@^1.0.0:
   version "1.1.1"
@@ -7367,10 +7367,10 @@ react-group@^3.0.2:
   dependencies:
     prop-types "^15.7.2"
 
-react-icons@^3.8.0:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.8.0.tgz#229de5904809696c9f46932bd9b6126b2522866e"
-  integrity sha512-rA/8GRKjPulft8BSBSMsHkE1AGPqJ7LjNsyk0BE7XjG70Iz62zOled2SJk7LDo8x9z86a3xOstDlKlMZ4pAy7A==
+react-icons@^3.8.0, react-icons@^3.9.0:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.9.0.tgz#89a00f20a0e02e6bfd899977eaf46eb4624239d5"
+  integrity sha512-gKbYKR+4QsD3PmIHLAM9TDDpnaTsr3XZeK1NTAb6WQQ+gxEdJ0xuCgLq0pxXdS7Utg2AIpcVhM1ut/jlDhcyNg==
   dependencies:
     camelcase "^5.0.0"
 
