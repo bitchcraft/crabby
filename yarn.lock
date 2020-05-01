@@ -4054,10 +4054,10 @@ flatted@^2.0.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.0.tgz#55122b6536ea496b4b44893ee2608141d10d9916"
   integrity sha512-R+H8IZclI8AAkSBRQJLVOsxwAoHd6WC40b4QTNWIjzAa6BXOBfQcM587MXDTVPeYaopFNWHUFLx7eNmHDSxMWg==
 
-flow-bin@^0.114.0:
-  version "0.114.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.114.0.tgz#9079c5fcdf08fab4db91616f38994e9b7d035842"
-  integrity sha512-hewufX0nbnhemQn5XtJ97nEFNqoBclPBAZ54aY3jKuZJnLpwqB7Doaplet3M26TOh2NchBsU0+lUkM8oVna2VA==
+flow-bin@^0.116.1:
+  version "0.116.1"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.116.1.tgz#797964df40f2e32cad7e334583535105161434f4"
+  integrity sha512-ZSvjx+S4PtDNKcA4U0Afm8sHzzSlTdBBT//N2AltcaN6M/gyxAOGXjC6VkMMGqKWttw+5Psq6fU+RIvD1q/ocA==
 
 flush-write-stream@^1.0.0:
   version "1.1.1"
@@ -8079,10 +8079,10 @@ set-value@^2.0.0:
     is-plain-object "^2.0.3"
     split-string "^3.0.1"
 
-set-value@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/set-value/-/set-value-3.0.1.tgz#52c82af7653ba69eb1db92e81f5cdb32739b9e95"
-  integrity sha512-w6n3GUPYAWQj4ZyHWzD7K2FnFXHx9OTwJYbWg+6nXjG8sCLfs9DGv+KlqglKIIJx+ks7MlFuwFW2RBPb+8V+xg==
+set-value@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/set-value/-/set-value-3.0.2.tgz#74e8ecd023c33d0f77199d415409a40f21e61b90"
+  integrity sha512-npjkVoz+ank0zjlV9F47Fdbjfj/PfXyVhZvGALWsyIYU/qrMzpi6avjKW3/7KeSU2Df3I46BrN1xOI1+6vW0hA==
   dependencies:
     is-plain-object "^2.0.4"
 
