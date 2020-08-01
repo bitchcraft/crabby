@@ -54,7 +54,7 @@
 		"eslint-plugin-react": "^7.18.0",
 		"eventsource-polyfill": "^0.9.6",
 		"expect": "^24.9.0",
-		"flow-bin": "^0.116.1",
+		"flow-bin": "^0.130.0",
 		"jest": "^24.9.0",
 		"markdown-to-jsx": "^6.10.3",
 		"prop-types": "^15.6.1",
