@@ -2628,9 +2628,9 @@ clipboard-copy@^3.1.0:
   integrity sha512-Xsu1NddBXB89IUauda5BIq3Zq73UWkjkaQlPQbLNvNsd5WBMnTWPNKYR6HGaySOxGYZ+BKxP2E9X4ElnI3yiPA==
 
 clipboard@^2.0.0:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-2.0.4.tgz#836dafd66cf0fea5d71ce5d5b0bf6e958009112d"
-  integrity sha512-Vw26VSLRpJfBofiVaFb/I8PVfdI1OxKcYShe6fm0sP/DtmiWQNCjhM/okTvdCo0G+lMMm1rMYbk4IK4x1X+kgQ==
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-2.0.6.tgz#52921296eec0fdf77ead1749421b21c968647376"
+  integrity sha512-g5zbiixBRk/wyKakSwCKd7vQXDjFnAMGHoEyBogG/bw9kTD9GvdAvaoRR1ALcEzt3pVKxZR0pViekPMIS0QyGg==
   dependencies:
     good-listener "^1.2.2"
     select "^1.1.2"
@@ -4054,10 +4054,10 @@ flatted@^2.0.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.0.tgz#55122b6536ea496b4b44893ee2608141d10d9916"
   integrity sha512-R+H8IZclI8AAkSBRQJLVOsxwAoHd6WC40b4QTNWIjzAa6BXOBfQcM587MXDTVPeYaopFNWHUFLx7eNmHDSxMWg==
 
-flow-bin@^0.114.0:
-  version "0.114.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.114.0.tgz#9079c5fcdf08fab4db91616f38994e9b7d035842"
-  integrity sha512-hewufX0nbnhemQn5XtJ97nEFNqoBclPBAZ54aY3jKuZJnLpwqB7Doaplet3M26TOh2NchBsU0+lUkM8oVna2VA==
+flow-bin@^0.116.1:
+  version "0.116.1"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.116.1.tgz#797964df40f2e32cad7e334583535105161434f4"
+  integrity sha512-ZSvjx+S4PtDNKcA4U0Afm8sHzzSlTdBBT//N2AltcaN6M/gyxAOGXjC6VkMMGqKWttw+5Psq6fU+RIvD1q/ocA==
 
 flush-write-stream@^1.0.0:
   version "1.1.1"
@@ -7080,9 +7080,9 @@ pretty-format@^24.9.0:
     react-is "^16.8.4"
 
 prismjs@^1.17.1:
-  version "1.19.0"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.19.0.tgz#713afbd45c3baca4b321569f2df39e17e729d4dc"
-  integrity sha512-IVFtbW9mCWm9eOIaEkNyo2Vl4NnEifis2GQ7/MLRG5TQe6t+4Sj9J5QWI9i3v+SS43uZBlCAOn+zYTVYQcPXJw==
+  version "1.21.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.21.0.tgz#36c086ec36b45319ec4218ee164c110f9fc015a3"
+  integrity sha512-uGdSIu1nk3kej2iZsLyDoJ7e9bnPzIgY0naW/HdknGj61zScaprVEVGHrPoXqI+M9sP0NDnTK2jpkvmldpuqDw==
   optionalDependencies:
     clipboard "^2.0.0"
 
